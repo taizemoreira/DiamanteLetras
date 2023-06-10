@@ -1,88 +1,84 @@
 ﻿////É Dado uma letra ('A' a 'Z'), exiba um diamante iniciando em 'A' e
 ////tendo a letra fornecida com o  ponto mais distante.
 using System;
+
 namespace DiamanteLetras.ConsoleApp
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            char letraInformada = 'G';
+            char letraInformada = 'E';
             char letra = 'A';
-            int espacosDaMargem = letraInformada - letra; //diferença entre espaços
-            int quantidadeLinhas = letraInformada - letra;
+            int espacosDaMargem = letraInformada - letra;
+            int quantidadeDeLinhas = letraInformada - letra;
+
             int espacosEntreAsLetras = -1;
 
-            //desenho da parte superior do diamante
-            for (int linha = 0; linha < quantidadeLinhas; linha++)
+            // desenho parte superior
+            for (int linha = 0; linha < quantidadeDeLinhas; linha++)
             {
                 for (int i = 0; i < espacosDaMargem; i++)
-                { // primeira linha do diamante
-                    Console.Write(" ");
-                }
-
-                Console.Write(letra);
-
-                for (int i = 0; i < espacosEntreAsLetras; i++)
-                {
-                    Console.Write(" ");
-                }
-                if (letra != 'A')
-                {
-                    Console.Write(letra); //letra final
-                }
-
-                letra++;
-                espacosDaMargem--;
-                espacosEntreAsLetras += 2;
-
-                Console.WriteLine();
+                    Console.WriteLine("b");
             }
 
-            // desenho parte do meio  do diamante 
+            Console.Write(letra);
+
+            for (int linha = 0; linha < quantidadeDeLinhas; linha++)
+            {
+                    for (int i = 0; i < espacosEntreAsLetras; i++)
+                        Console.WriteLine(" ");     
+            }
+
+            if (letra != 'A')
+                Console.WriteLine(letra);
+
+            letra++;
+            espacosDaMargem--;
+            espacosEntreAsLetras += 2;
+
+            Console.WriteLine();
+        
+            //desenho da parte do meio
             Console.Write(letraInformada);
 
-            for (int i = 0; i < espacosEntreAsLetras; i++)
-            {
-                Console.Write(" ");
-            }
+            for (int i = 0;i<espacosEntreAsLetras; i++) 
+                Console.WriteLine(" ");       
+
+            Console.Write(letraInformada);
 
             letra--;
             espacosDaMargem++;
             espacosEntreAsLetras -= 2;
-            Console.WriteLine();    
+            Console.WriteLine();
 
-        }
-
-        // desenho parte inferior do diamante
-        for (int linha = 0; linha < quantidadeLinhas; linha++)
-			{
+            //desenho da parte inferior
+            for (int linha = 0; linha < 4; linha++)
+            {
                 for (int i = 0; i < espacosDaMargem; i++)
-			    {
-                    Console.Write(" ");
-			    }
+                    Console.WriteLine("b");
+            }
 
-                Console.Write(letra);
+            Console.Write(letra);
 
-                for (int i = 0; i < espacosEntreAsLetras; i++)
-			    {
-                    Console.Write(" ");
-			    }
+            for (int linha = 0; linha < 4; linha++)
+            {
+                {
+                    for (int i = 0; i < espacosEntreAsLetras; i++)                  
+                        Console.WriteLine(" ");                  
+                }
+            }
 
-                if (DiamanteLetras != 'A')
-                    Console.Write(letra); // letra final
-                
+            if (letra != 'A')
+                Console.WriteLine(letra);
 
-                letra--;
-                espacosDaMargem++;
-                espacosEntreAsLetras -= 2;
+            letra--;
+            espacosDaMargem++;
+            espacosEntreAsLetras -= 2;
 
-                Console.WriteLine(); 
-			    }
-                
-            Console.ReadLine(); 
-          
-         }        
+            Console.WriteLine();
+        }
     }
 }
+
 
