@@ -4,46 +4,47 @@ using System;
 
 namespace DiamanteLetras.ConsoleApp
 {
-    public class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
-            char letraInformada = 'E';
+            char letraInformada = 'G';
+
             char letra = 'A';
+
             int espacosDaMargem = letraInformada - letra;
-            int quantidadeDeLinhas = letraInformada - letra;
+
+            int quantidadeLinhas = letraInformada - letra;
 
             int espacosEntreAsLetras = -1;
 
-            // desenho parte superior
-            for (int linha = 0; linha < quantidadeDeLinhas; linha++)
+            //desenhou a parte do superior do diamante
+
+            for (int linha = 0; linha < quantidadeLinhas; linha++)
             {
                 for (int i = 0; i < espacosDaMargem; i++)
-                    Console.WriteLine("b");
+                    Console.Write(" ");
+
+                Console.Write(letra);
+
+                for (int i = 0; i < espacosEntreAsLetras; i++)
+                    Console.Write(" ");
+
+                if (letra != 'A')
+                    Console.Write(letra); //letra final
+
+                letra++;
+                espacosDaMargem--;
+                espacosEntreAsLetras += 2;
+
+                Console.WriteLine();
             }
 
-            Console.Write(letra);
-
-            for (int linha = 0; linha < quantidadeDeLinhas; linha++)
-            {
-                    for (int i = 0; i < espacosEntreAsLetras; i++)
-                        Console.WriteLine(" ");     
-            }
-
-            if (letra != 'A')
-                Console.WriteLine(letra);
-
-            letra++;
-            espacosDaMargem--;
-            espacosEntreAsLetras += 2;
-
-            Console.WriteLine();
-        
             //desenho da parte do meio
             Console.Write(letraInformada);
 
-            for (int i = 0;i<espacosEntreAsLetras; i++) 
-                Console.WriteLine(" ");       
+            for (int i = 0; i < espacosEntreAsLetras; i++)
+                Console.Write(" ");
 
             Console.Write(letraInformada);
 
@@ -52,33 +53,29 @@ namespace DiamanteLetras.ConsoleApp
             espacosEntreAsLetras -= 2;
             Console.WriteLine();
 
-            //desenho da parte inferior
-            for (int linha = 0; linha < 4; linha++)
+            //desenho da parte inferior do diamante
+
+            for (int linha = 0; linha < quantidadeLinhas; linha++)
             {
                 for (int i = 0; i < espacosDaMargem; i++)
-                    Console.WriteLine("b");
+                    Console.Write(" ");
+
+                Console.Write(letra);
+
+                for (int i = 0; i < espacosEntreAsLetras; i++)
+                    Console.Write(" ");
+
+                if (letra != 'A')
+                    Console.Write(letra); //letra final
+
+                letra--;
+                espacosDaMargem++;
+                espacosEntreAsLetras -= 2;
+
+                Console.WriteLine();
             }
 
-            Console.Write(letra);
-
-            for (int linha = 0; linha < 4; linha++)
-            {
-                {
-                    for (int i = 0; i < espacosEntreAsLetras; i++)                  
-                        Console.WriteLine(" ");                  
-                }
-            }
-
-            if (letra != 'A')
-                Console.WriteLine(letra);
-
-            letra--;
-            espacosDaMargem++;
-            espacosEntreAsLetras -= 2;
-
-            Console.WriteLine();
+            Console.ReadLine();
         }
     }
 }
-
-
